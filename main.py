@@ -11,8 +11,8 @@ class Pracownik:
     def __str__(self):
         return f"Imię: {self.imie}\nNazwisko: {self.nazwisko}\nWiek: {self.wiek}\nStanowisko: {self.stanowisko}\nZarobki: {self.zarobki}\n"
 
+
 try:
-    # tworzenie pliku i zapis danych
     with open("pracownicy.txt", "w") as file:
         file.write("Jan Kowalski;45;kierownik;\n")
         file.write("Adam Nowak;32;mechanik;\n")
@@ -21,7 +21,6 @@ try:
         file.write("Marta Prokop;40;mechanik;\n")
         file.write("Dorota Rytel;39;kierowca;\n")
 
-    # otwieranie pliku i dopisywanie danych
     with open("pracownicy.txt", "r+") as file:
         lines = file.readlines()
         file.seek(0)
@@ -41,7 +40,6 @@ try:
             file.write(f"{line.strip()};{zarobki}\n")
         file.truncate()
 
-    # wyświetlanie danych
     with open("pracownicy.txt", "r") as file:
         for line in file:
             data = line.strip().split(";")
